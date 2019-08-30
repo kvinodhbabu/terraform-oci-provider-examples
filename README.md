@@ -11,4 +11,5 @@ OCI terraform provider examples on how to automate your infrastructure provision
  Load Balancer (Private) 
  Load Balancer (Public)
  IPsec Connection between OCI and other cloud/on-premise network.
+ IPsec Testing between on-premise and OCI on a different region.(Only for testing purpose) Always Use remote peering 
 ```
