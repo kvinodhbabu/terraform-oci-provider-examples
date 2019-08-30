@@ -1,0 +1,5 @@
+#!/bin/bash
+#sudo yum update -y
+#sudo yum -y install libreswan
+#sudo mv /etc/ipsec.conf /etc/ipsec.conf.bck
+

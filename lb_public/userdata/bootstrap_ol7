@@ -1,0 +1,20 @@
+#!/bin/bash -x
+echo '################### webserver userdata begins #####################'
+touch ~opc/userdata.`date +%s`.start
+# echo '########## yum update all ###############'
+# yum update -y
+echo '########## basic webserver ##############'
+sudo yum install -y httpd
+sudo systemctl enable  httpd.service
+sudo systemctl start  httpd.service
+echo '<html><head></head><body><pre><code>' > /var/www/html/index.html
+hostname >> /var/www/html/index.html
+echo '' >> /var/www/html/index.html
+cat /etc/os-release >> /var/www/html/index.html
+echo '</code></pre></body></html>' >> /var/www/html/index.html
+sudo firewall-offline-cmd --add-service=http
+sudo systemctl enable  firewalld
+sudo systemctl restart  firewalld
+touch ~opc/userdata.`date +%s`.finish
+echo '################### webserver userdata ends #######################'
+#EOF
